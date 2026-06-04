@@ -1,24 +1,17 @@
-#include<bits/stdc++.h>
-using namespace std;
-
-class Solution 
-{
-    public:
-    //Function to find the distance of nearest 1 in the grid for each cell.
-	vector<vector<int>>nearest(vector<vector<int>>grid)
-	{
-	    int n = grid.size(); 
-	    int m = grid[0].size(); 
-	    // visited and distance matrix
-	    vector<vector<int>> vis(n, vector<int>(m, 0)); 
+class Solution {
+public:
+    vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
+        int n = mat.size();
+        int m = mat[0].size();
+        vector<vector<int>> vis(n, vector<int>(m, 0)); 
 	    vector<vector<int>> dist(n, vector<int>(m, 0)); 
-	    // <coordinates, steps>
+        // <coordinates, steps>
 	    queue<pair<pair<int,int>, int>> q; 
 	    // traverse the matrix
 	    for(int i = 0;i<n;i++) {
 	        for(int j = 0;j<m;j++) {
 	            // start BFS if cell contains 1
-	            if(grid[i][j] == 1) {
+	            if(mat[i][j] == 0) {
 	                q.push({{i,j}, 0}); 
 	                vis[i][j] = 1; 
 	            }
@@ -27,20 +20,18 @@ class Solution
 	                vis[i][j] = 0; 
 	            }
 	        }
-	    }
-	    
-	    int delrow[] = {-1, 0, +1, 0}; 
-	    int delcol[] = {0, +1, 0, -1}; 
-	    
-	    // traverse till queue becomes empty
-	    while(!q.empty()) {
-	        int row = q.front().first.first; 
+
+    }
+    int delrow[] = {-1, 0, +1, 0}; 
+	    int delcol[] = {0, +1, 0, -1};
+     while ( !q.empty()){
+        int row = q.front().first.first; 
 	        int col = q.front().first.second; 
 	        int steps = q.front().second; 
-	        q.pop(); 
-	        dist[row][col] = steps; 
-	        // for all 4 neighbours
-	        for(int i = 0;i<4;i++) {
+        q.pop();
+        dist[row][col] = steps; 
+
+        for(int i = 0;i<4;i++) {
 	            int nrow = row + delrow[i]; 
 	            int ncol = col + delcol[i]; 
 	            // check for valid unvisited cell
@@ -53,24 +44,7 @@ class Solution
 	    }
 	    // return distance matrix
 	    return dist; 
-	}
-};
 
-int main(){
-    vector<vector<int>>grid{
-        {0,1,1,0},
-        {1,1,0,0},
-        {0,0,1,1}
-    };
-	
-	Solution obj;
-	vector<vector<int>> ans = obj.nearest(grid);
-		
-	for(auto i: ans){
-		for(auto j: i)
-			cout << j << " ";
-		cout << "\n";
-	}
-	
-	return 0;
-}
+    }
+
+};
