@@ -10,15 +10,15 @@ public:
 	    // traverse the matrix
 	    for(int i = 0;i<n;i++) {
 	        for(int j = 0;j<m;j++) {
-	            // start BFS if cell contains 1
+	            // start BFS if cell contains 0
 	            if(mat[i][j] == 0) {
 	                q.push({{i,j}, 0}); 
 	                vis[i][j] = 1; 
 	            }
-	            else {
+	            /*else {
 	                // mark unvisited 
 	                vis[i][j] = 0; 
-	            }
+	            }*/
 	        }
 
     }
