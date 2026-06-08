@@ -2,7 +2,8 @@ class Solution {
     private: int row;
     private: int col;
 
-    public int numEnclaves(int[][] grid) {
+    public: 
+        int numEnclaves(int[][] grid) {
         row = grid.length; 
         col = grid[0].length;
         int count = 0;
@@ -22,7 +23,8 @@ class Solution {
         }
         return count;
     }
-    private void dfs(int[][] grid, int i, int j){
+    private: 
+         void dfs(int[][] grid, int i, int j){
         if(i<0 || j<0 || i>=row || j>=col || grid[i][j] == 0){
             return;
         }
