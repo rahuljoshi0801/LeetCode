@@ -1,37 +1,43 @@
 class Solution {
-    private: 
-    void dfs(int row , int col , vector<vector<int> & vis, vector<vector<int>>, int row0, int col0){
-        vis[i][j] =1 ;
-        vec.push_back({row - row0 , col - col0});
-        int n = grid.size();
-        int m = grid[0].size();
-        int delrow[] = {-1,0,1,0};
-        int delcol[] = (0,-1,1,0);
-        for (int i =0 ; i<4 ; i++){
-            int nrow = row + delrow[i];
-            int ncol = col + delcol[i];
-            if ( nrow>=0 && nrow < n&& ncol>=0 && ncol< m &&!vis[nrow][ncol] && grid[nrow][ncol]==1){
-                dfs(nrow, ncol, vis, grid, vec, row0 , col0 );
-            }
-        }
-        
-
-    }
 public:
     int numIslands(vector<vector<char>>& grid) {
-        int n = grid.size();
-        int m = grid[0].size();
-        vector<vector<int>> vis(n, vis(m, 0));
-        set<vector<pair<int, int>>> s;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if (!vis[i][j] && grid[i][j] == 1) {
-                    vector<pair<int, int>> vec;
-                    dfs(i, j, vis, grid, vec, i, j);
-                    s.insert(vec);
+        int islands = 0;
+        int rows = grid.size();
+        int cols = grid[0].size();
+        unordered_set<string> visited;
+
+        vector<pair<int, int>> directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (grid[r][c] == '1' && visited.find(to_string(r) + "," + to_string(c)) == visited.end()) {
+                    islands++;
+                    bfs(grid, r, c, visited, directions, rows, cols);
                 }
             }
-            return s.size();
+        }
+
+        return islands;        
+    }
+
+private:
+    void bfs(vector<vector<char>>& grid, int r, int c, unordered_set<string>& visited, vector<pair<int, int>>& directions, int rows, int cols) {
+        queue<pair<int, int>> q;
+        visited.insert(to_string(r) + "," + to_string(c));
+        q.push({r, c});
+
+        while (!q.empty()) {
+            auto [row, col] = q.front();
+            q.pop();
+
+            for (auto [dr, dc] : directions) {
+                int nr = row + dr;
+                int nc = col + dc;
+                if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && grid[nr][nc] == '1' && visited.find(to_string(nr) + "," + to_string(nc)) == visited.end()) {
+                    q.push({nr, nc});
+                    visited.insert(to_string(nr) + "," + to_string(nc));
+                }
+            }
         }
     }
-};
+};    
