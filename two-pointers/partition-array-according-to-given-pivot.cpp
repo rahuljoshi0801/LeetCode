@@ -16,7 +16,7 @@ public:
             i++;
             j--;
          }
-         while(l<=right){
+         while(l<=r){
             ans[left++] = pivot;
         }
         
