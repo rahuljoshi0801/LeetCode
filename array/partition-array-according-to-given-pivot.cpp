@@ -10,7 +10,7 @@ public:
             if(nums[i]< pivot){
                 ans[l++] = nums[i];
             }
-            if{nums[j]>pivot}{
+            if(nums[j]>pivot){
                 ans[r--]= nums[j];
             }
             i++;
