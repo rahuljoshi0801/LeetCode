@@ -1,6 +1,6 @@
 class Solution {
-    private int row;
-    private int col;
+    private: int row;
+    private: int col;
 
     public int numEnclaves(int[][] grid) {
         row = grid.length; 
