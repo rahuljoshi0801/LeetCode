@@ -1,48 +1,41 @@
 class Solution {
 public:
     vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
-        // Build adjacency list
-        vector<vector<int>> adj(numCourses);
-        // Build in-degree array
-        vector<int> inDegree(numCourses, 0);
 
-        // Fill adjacency and in-degree
-        for (auto& pre : prerequisites) {
-            int a = pre[0], b = pre[1];
-            adj[b].push_back(a);
-            inDegree[a]++;
+        vector<int> indegree(numCourses, 0);
+        vector<vector<int>> grp(numCourses);
+
+        for (int i = 0; i < prerequisites.size(); i++) {
+            grp[prerequisites[i][1]].push_back(prerequisites[i][0]);
+            indegree[prerequisites[i][0]]++;
         }
 
-        // Initialize queue with zero in-degree nodes
         queue<int> q;
+
         for (int i = 0; i < numCourses; i++) {
-            if (inDegree[i] == 0) {
+            if (indegree[i] == 0)
                 q.push(i);
-            }
         }
 
-        // Create result list
-        vector<int> order;
+        vector<int> ans;
 
-        // Process queue
         while (!q.empty()) {
             int node = q.front();
             q.pop();
-            order.push_back(node);
 
-            // Reduce in-degree of neighbors
-            for (int nei : adj[node]) {
-                inDegree[nei]--;
-                if (inDegree[nei] == 0) {
-                    q.push(nei);
-                }
+            ans.push_back(node);
+
+            for (auto it : grp[node]) {
+                indegree[it]--;
+
+                if (indegree[it] == 0)
+                    q.push(it);
             }
         }
 
-        // Return order if valid, else empty
-        if ((int)order.size() == numCourses) {
-            return order;
-        }
+        if (ans.size() == numCourses)
+            return ans;
+
         return {};
     }
 };
