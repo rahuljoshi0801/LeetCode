@@ -4,7 +4,7 @@ public:
         int ind = -1;
         int n = nums.size();
         for( int i = n-2; i < n; i--){
-            if(nums[i]>arr[i+1]){
+            if(nums[i]>nums[i+1]){
             ind = i;
             break ;
             }
