@@ -1,25 +1,32 @@
 class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
-        int ind = -1;
         int n = nums.size();
-        for( int i = n-2; i < n; i--){
-            if(nums[i]>nums[i+1]){
-            ind = i;
-            break ;
+        int ind = -1;
+
+        // Step 1: Find pivot
+        for (int i = n - 2; i >= 0; i--) {
+            if (nums[i] < nums[i + 1]) {
+                ind = i;
+                break;
             }
         }
-        if( ind == -1){
+
+        // Step 2: If no pivot, reverse whole array
+        if (ind == -1) {
             reverse(nums.begin(), nums.end());
+            return;
         }
-        for(int i = n-1; i>ind ;i++){
-            if(nums[i]>nums[ind]){
+
+        // Step 3: Find next greater element from the end
+        for (int i = n - 1; i > ind; i--) {
+            if (nums[i] > nums[ind]) {
                 swap(nums[i], nums[ind]);
                 break;
             }
         }
-        reverse(nums.begin() + ind + 1, nums.end());
-        return ;
 
+        // Step 4: Reverse the suffix
+        reverse(nums.begin() + ind + 1, nums.end());
     }
 };
