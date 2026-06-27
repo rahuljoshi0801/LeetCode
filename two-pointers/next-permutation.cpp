@@ -9,7 +9,7 @@ public:
             break ;
             }
         }
-        if( ind = -1){
+        if( ind == -1){
             reverse(nums.begin(), nums.end());
         }
         for(int i = index; i< n ;i++){
