@@ -5,7 +5,7 @@ public:
 
         int m = obstacleGrid[0].size();//column
 
-        vector<vector<int>>( n, vector<int>(m,-1));
+        vector<vector<int>>dp ( n, vector<int>(m,-1));
         for ( int i =0; i<n;i++){
             for ( int j =0; j<m;j++){
                 if (obstacleGrid[i][j] == 1) {
