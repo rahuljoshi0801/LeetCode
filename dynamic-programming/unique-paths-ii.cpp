@@ -8,7 +8,7 @@ public:
         vector<vector<int>>( n, vector<int>(m,-1));
         for ( int i =0; i<n;i++){
             for ( int j =0; j<m;j++){
-                if (matrix[i][j] == 1) {
+                if (obstacleGrid[i][j] == 1) {
                     /* If there's an obstacle at the 
                     cell, no paths can pass through it*/
                     dp[i][j] = 0;
