@@ -1,9 +1,9 @@
 class Solution {
 public:
     int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
-        int n = obstacleGrid.size();//row
+        int m = obstacleGrid.size();//row
 
-        int m = obstacleGrid[0].size();//column
+        int n = obstacleGrid[0].size();//column
 
         vector<vector<int>>dp ( n, vector<int>(m,-1));
         for ( int i =0; i<n;i++){
