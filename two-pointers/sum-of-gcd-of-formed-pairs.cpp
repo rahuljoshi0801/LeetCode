@@ -11,9 +11,10 @@ public:
         }
         sort( prefixGcd.begin(), prefixGcd.end());
         int sum = 0;
-        for( int i =0;i<n;i++){
-            sum = gcd(prefixGcd[i], prefixGcd[n-i]);
-        }
-        return sum;
+        long long res = 0;
+        for (int i = 0, j = A.size() - 1; i < j; i++, j--)
+            res += gcd(A[i], A[j]);
+
+        return res;
     }
 };
