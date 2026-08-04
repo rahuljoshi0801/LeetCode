@@ -8,7 +8,7 @@ public:
         int a = nums[0];
         int b = nums[n-1];
         for (int i = a; i <= b; i++) {
-            for(int k =0; k<=b; k++)
+            for(int k =0; k<n; k++)
             {if (i == nums[k]) {
                 continue;
             }
