@@ -1,17 +1,26 @@
 class Solution {
 public:
     int uniqueXorTriplets(vector<int>& nums) {
-        int n=nums.size();
-        unordered_set<int > set ;
-        for( int i =0 ; i< n; i++){
-            
-            for(int j =i ;j<n;j++){
-                
-                for( int k =j ; k<n ;k ++ ){
-                    set.insert(nums[i]^nums[j]^nums[k]);
-                }
+        int n = nums.size();
+
+        unordered_set<int> pairXor;
+
+        // Store all pair XORs
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                pairXor.insert(nums[i] ^ nums[j]);
             }
         }
-        return set.size();
+
+        unordered_set<int> ans;
+
+        // XOR every pair XOR with every element
+        for (int x : pairXor) {
+            for (int num : nums) {
+                ans.insert(x ^ num);
+            }
+        }
+
+        return ans.size();
     }
 };
