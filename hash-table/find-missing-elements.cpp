@@ -9,9 +9,9 @@ public:
         int b = nums[n-1];
         for (int i = a; i <= b; i++) {
             for(int k =0; k<n; k++)
-            {if (i == nums[k]) {
+            {if (i == nums[k])
                 continue;
-            }
+            
             ans.push_back(i);
             j++;}
         }
