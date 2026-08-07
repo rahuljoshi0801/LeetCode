@@ -26,8 +26,7 @@ public:
                         right--;
                     else {
                         // found quadruplet
-                        ans.push_back(
-                            {nums[i], nums[j], nums[left], nums[right]}) left++;
+                        ans.push_back({nums[i], nums[j], nums[left], nums[right]})  ;left++;
                         right--;
 
                         // skip duplicates
