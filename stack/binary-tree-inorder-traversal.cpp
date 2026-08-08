@@ -20,7 +20,7 @@ public:
         inOrder(node->left, res);
 
         // Visit the current node
-        res.push_back(node->data);
+        res.push_back(node->val);
 
         // Traverse the right subtree last
         inOrder(node->right, res);
