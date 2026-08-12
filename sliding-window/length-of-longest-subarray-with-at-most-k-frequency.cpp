@@ -7,13 +7,12 @@ public:
         int i = 0, j = 0 ;
         while( j <n){
             freq[nums[j]]++;
-            while (freq[j]>k) {
+            while (freq[nums[j]]>k) {
                 freq[i]--;
                 i++;
             }
             res = max ( res , j-i+1);
             j++;
-
         }
         return res ;
     }
