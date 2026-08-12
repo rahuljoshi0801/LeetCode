@@ -8,7 +8,7 @@ public:
         while( j <n){
             freq[nums[j]]++;
             while (freq[nums[j]]>k) {
-                freq[i]--;
+                freq[nums[i]]--;
                 i++;
             }
             res = max ( res , j-i+1);
