@@ -1,31 +1,50 @@
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> neighbors;
+    Node() {
+        val = 0;
+        neighbors = vector<Node*>();
+    }
+    Node(int _val) {
+        val = _val;
+        neighbors = vector<Node*>();
+    }
+    Node(int _val, vector<Node*> _neighbors) {
+        val = _val;
+        neighbors = _neighbors;
+    }
+};
+*/
+
 class Solution {
 public:
     unordered_map<Node*, Node*> mp;
+    void dfs(node* node, node* clone_node) {
 
-    Node* dfs(Node* node) {
-        // Already cloned
-        if (mp.find(node) != mp.end()) {
-            return mp[node];
+        mp[node] = clone_node;
+        for (Node* n : Node->neighbors) {
+            if (mp.find(n) = mp.end()) {
+                Node* clone = new Node(n->value);
+                clone_node->neighbors.push_back(clone);
+                mp[clone_node] = n;
+                dfs(n, clone,mp);
+            } else {
+                mp[n] = clone_node;
+            }
         }
-
-        // Create clone
-        Node* clone = new Node(node->val);
-        mp[node] = clone;
-
-        // Clone all neighbors
-        for (Node* neighbor : node->neighbors) {
-            clone->neighbors.push_back(dfs(neighbor));
-        }
-
-        return clone;
     }
-
     Node* cloneGraph(Node* node) {
-        if (node == nullptr) {
-            return nullptr;
-        }
+        if (node == NULL)
+            return;
+        Node* clone_node = new Node(Node->val);
 
         mp.clear();
-        return dfs(node);
+
+        mp[Node->val] = clone_node;
+       
+        return  dfs(node, clone_node, mp);
     }
 };
