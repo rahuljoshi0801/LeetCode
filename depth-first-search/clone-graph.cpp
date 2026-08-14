@@ -22,10 +22,10 @@ public:
 class Solution {
 public:
     unordered_map<Node*, Node*> mp;
-    void dfs(node* node, node* clone_node) {
+    void dfs(Node* node, Node* clone_node) {
 
         mp[node] = clone_node;
-        for (Node* n : Node->neighbors) {
+        for (Node* n : node->neighbors) {
             if (mp.find(n) = mp.end()) {
                 Node* clone = new Node(n->value);
                 clone_node->neighbors.push_back(clone);
@@ -39,7 +39,7 @@ public:
     Node* cloneGraph(Node* node) {
         if (node == NULL)
             return;
-        Node* clone_node = new Node(Node->val);
+        Node* clone_node = new Node(node->val);
 
         mp.clear();
 
