@@ -13,10 +13,10 @@ public:
                 i++;
 
             } 
-                j++;
+                len = max(len, j - i + 1);j++;
                 
             
-            len = max(len, j - i + 1);
+            
         }
         return len;
     }
