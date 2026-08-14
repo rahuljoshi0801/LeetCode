@@ -22,7 +22,7 @@ public:
 class Solution {
 public:
     unordered_map<Node*, Node*> mp;
-    void dfs(Node* node, Node* clone_node) {
+    void dfs(Node* node, Node* clone_node,unordered_map<Node*, Node*> &mp) {
 
         mp[node] = clone_node;
         for (Node* n : node->neighbors) {
