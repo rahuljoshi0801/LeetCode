@@ -32,7 +32,7 @@ public:
                 mp[n] = clone;
                 dfs(n, clone,mp);
             } else {
-                mp[n] = clone;
+                clone_node->neighbors.push_back(mp[n]);
             }
         }
     }
