@@ -38,7 +38,7 @@ public:
     }
     Node* cloneGraph(Node* node) {
         if (node == NULL)
-            return;
+            return [[]];
         Node* clone_node = new Node(node->val);
 
         mp.clear();
