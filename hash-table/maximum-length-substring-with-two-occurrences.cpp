@@ -5,7 +5,7 @@ public:
     int maximumLengthSubstring(string s) {
         int i = 0, j = 0;
         int n = s.length();
-        freq[s[i]] = 1;
+        
         while (j < n) {
             freq[s[j]]++;
             while (freq[s[j]] >2) {
