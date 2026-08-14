@@ -26,10 +26,10 @@ public:
 
         mp[node] = clone_node;
         for (Node* n : node->neighbors) {
-            if (mp.find(n) = mp.end()) {
-                Node* clone = new Node(n->value);
+            if (mp.find(n) == mp.end()) {
+                Node* clone = new Node(n->val);
                 clone_node->neighbors.push_back(clone);
-                mp[clone_node] = n;
+                mp[n] = clone_node;
                 dfs(n, clone,mp);
             } else {
                 mp[n] = clone_node;
