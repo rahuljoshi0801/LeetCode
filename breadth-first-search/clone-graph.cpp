@@ -29,10 +29,10 @@ public:
             if (mp.find(n) == mp.end()) {
                 Node* clone = new Node(n->val);
                 clone_node->neighbors.push_back(clone);
-                mp[n] = clone_node;
+                mp[n] = clone;
                 dfs(n, clone,mp);
             } else {
-                mp[n] = clone_node;
+                mp[n] = clone;
             }
         }
     }
@@ -43,8 +43,9 @@ public:
 
         mp.clear();
 
-        mp[Node->val] = clone_node;
+        mp[node] = clone_node;
        
-        return  dfs(node, clone_node, mp);
+        dfs(node, clone_node, mp);
+        return  clone_node;
     }
 };
