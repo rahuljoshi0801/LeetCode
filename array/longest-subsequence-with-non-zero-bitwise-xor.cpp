@@ -7,7 +7,8 @@ public:
         for (const auto& element : my_set) {
         x = element^x;
     }
-    if (x != 0) return my_set.size();
-    else return my_set.size()-1;
+    size_t = my_set.size();
+    if (x != 0) return t;
+    else return t-1;
     }
 };
