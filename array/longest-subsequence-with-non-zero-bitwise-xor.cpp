@@ -8,7 +8,6 @@ public:
         x = element^x;
     }
     if (x != 0) return my_set.size();
-
-    return my_set.size()-1;
+    else return my_set.size()-1;
     }
 };
