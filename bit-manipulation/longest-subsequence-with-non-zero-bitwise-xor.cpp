@@ -8,7 +8,7 @@ public:
         x = element^x;
     }
     size_t = my_set.size();
-    if (x != 0) return t;
-    else return t-1;
+    if (x != 0) return size_t;
+    else return size_t;
     }
 };
