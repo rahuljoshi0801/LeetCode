@@ -1,13 +1,16 @@
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
-        int currentSum = nums[0];
-        int maxSum = nums[0];
+        int n = nums.size();
+        vector<int> dp(n);
 
-        for (int i = 1; i < nums.size(); i++) {
-            // Either extend current subarray OR start fresh from nums[i]
-            currentSum = max(nums[i], currentSum + nums[i]);
-            maxSum = max(maxSum, currentSum);
+        dp[0] = nums[0];
+        int maxSum = dp[0];
+
+        for (int i = 1; i < n; i++) {
+            // dp[i] = best subarray ending exactly at index i
+            dp[i] = max(nums[i], dp[i-1] + nums[i]);
+            maxSum = max(maxSum, dp[i]);
         }
 
         return maxSum;
