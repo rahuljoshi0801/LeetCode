@@ -8,7 +8,7 @@ public:
             for( int j = i+1;j<n; j++ ){
                 if( nums[ i] + nums[j] >= target){
                     count = min( count , j -i+1 );
-                    i++ ;
+                    i++ ; j--;
                     
                 }else if ( nums[ i] + nums[j] <target){
                     j++;
