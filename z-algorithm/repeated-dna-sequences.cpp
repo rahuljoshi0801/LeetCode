@@ -4,7 +4,7 @@ public:
         unordered_set<string> seen;
         unordered_set<string> result;
 
-        int n = (int)s.length();  // ✅ cast to int — prevents unsigned underflow
+        int n = s.length();  // ✅ cast to int — prevents unsigned underflow
 
         if (n < 10) return {};    // ✅ edge case: string too short
 
