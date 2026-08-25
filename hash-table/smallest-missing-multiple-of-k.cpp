@@ -8,7 +8,7 @@ public:
         }
 
         for (int multiple = k; ; multiple += k) {
-            if ( !present[multiple]) {
+            if (multiple < 100 || !present[multiple]) {
                 return multiple;
             }
         }
