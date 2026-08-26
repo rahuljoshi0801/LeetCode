@@ -4,11 +4,11 @@ public:
         int n = s.length();
         for( int len = k ; len < n; len++){
              string res = ""; 
-            for(int i = 0 ; i <n -len; i++ ){
+            for(int i = 0 ; i <=n -len; i++ ){
                 string temp = s.substr(i, len);
                 int ones = 0 ;
-                for(char &ch : temp){
-                    ones += (ch = 1) ? 1:0;
+                for(auto &ch : temp){
+                    ones += (ch == '1') ? 1:0;
 
                 }
                 if(ones == k){
