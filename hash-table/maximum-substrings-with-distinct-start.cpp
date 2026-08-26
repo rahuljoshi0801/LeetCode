@@ -6,7 +6,9 @@ public:
         for (char &ch : s){
             if ( taken[ch - 'a']== 0 ){
                 count++;
+                taken[ch - 'a']++;
             }
+
         }
         return count ;
 
