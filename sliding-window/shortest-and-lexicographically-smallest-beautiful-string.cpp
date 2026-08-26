@@ -8,7 +8,7 @@ public:
                 string temp = s.substr(i, len);
                 int ones = 0 ;
                 for(char &ch : temp){
-                    ones += (ch == "1") ? 1:0;
+                    ones += (ch = 1) ? 1:0;
 
                 }
                 if(ones == k){
