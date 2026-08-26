@@ -1,7 +1,7 @@
 class Solution {
 public:
     string shortestBeautifulSubstring(string s, int k) {
-        int n = s.length():
+        int n = s.length();
         for( int len = k ; len < n; len++){
              string res = ""; 
             for(int i = 0 ; i <n -len; i++ ){
