@@ -5,8 +5,8 @@ public:
         int  count = 0;
         for (char &ch : s){
             if ( taken[ch - 'a']= 0 ){
-                 count++;
-            }else continue;
+                count++;
+            }
         }
         return count ;
 
