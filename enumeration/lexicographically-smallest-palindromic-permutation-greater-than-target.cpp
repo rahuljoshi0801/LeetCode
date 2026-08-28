@@ -46,7 +46,7 @@ public:
     string lexPalindromicPermutation(string s, string target) {
         vector<int> v(26);
         int n = s.length();
-        string res = "";
+        
         for (char& ch : s) {
             v[ch - 'a']++;
         }
