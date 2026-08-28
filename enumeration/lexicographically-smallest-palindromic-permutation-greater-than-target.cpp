@@ -55,18 +55,20 @@ public:
         for (char& ch : s) {
             if (v[ch - 'a'] % 2 != 0) {
                 cant++;
-                if (cant == 1 && flag == 0) {
-                    mid = ch;// take the odd character 
-                    flag = 1;
-                }
+                mid = ch + 'a';
             }
         }
         if (cant > 1)
             return "";
+        
+        vector<int> halfCount(26, 0);
+        for (int c = 0; c < 26; c++) {
+            halfCount[c] = v[c] / 2;
+        }
 
         string curr = ""; // left half
         halflen = n / 2;
-        solve(curr, v, target, 0, false);
+        solve(curr, halfCount, target, 0, false);
         return res;
     }
 };
