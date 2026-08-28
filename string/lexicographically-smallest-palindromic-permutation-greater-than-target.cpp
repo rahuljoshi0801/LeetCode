@@ -7,7 +7,7 @@ public:
         }
         int cant = 0;
         for (char& ch : s) {
-            if (v[ch] % 2 != 0) {
+            if (v[ch- 'a'] % 2 != 0) {
                 cant++;
             }
         }
