@@ -3,12 +3,13 @@ public:
     char mid = '$';
     int halflen = 0;
     string res = "";
-    bool solve(string curr, vector<int>& v, string target, int i, bool greater) {
-        //for palandromic string 
+    bool solve(string curr, vector<int>& v, string target, int i,
+               bool greater) {
+        // for palandromic string
         if (curr.length() == halflen) {
             string candidate = curr;
             string rightHalf = curr;
-            reverse(begin(rightHalf), end(rightHalf));//right half
+            reverse(begin(rightHalf), end(rightHalf)); // right half
 
             if (mid != '$') {
                 candidate += mid;
@@ -39,35 +40,36 @@ public:
             // undo
             curr.pop_back();
             v[ch - 'a']++;
-
         }
         return false;
     }
 
     string lexPalindromicPermutation(string s, string target) {
-        vector<int> v(26,0);
+        vector<int> v(26, 0);
         int n = s.length();
-        
+
         for (char& ch : s) {
             v[ch - 'a']++;
         }
         int cant = 0, flag = 0;
-        for (char& ch : s) {
-            if (v[ch - 'a'] % 2 != 0) {
-                cant++;
-                mid = ch + 'a';
+        for (int c = 0; c < 26; c++) {
+            if (count[c] % 2 == 1) { 
+                cant++; 
+                midChar = c + 'a'; 
             }
         }
         if (cant > 1)
             return "";
-        
+
         vector<int> halfCount(26, 0);
         for (int c = 0; c < 26; c++) {
             halfCount[c] = v[c] / 2;
         }
 
         string curr = ""; // left half
+
         halflen = n / 2;
+
         solve(curr, halfCount, target, 0, false);
         return res;
     }
