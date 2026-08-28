@@ -9,7 +9,7 @@ public:
         for (char& ch : s) {
             if (v[ch- 'a'] % 2 != 0) {
                 cant++;
-                if(cant ==1)
+                //if(cant ==1)
             }
         }
         if (cant > 1)
