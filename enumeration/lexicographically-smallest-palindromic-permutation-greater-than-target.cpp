@@ -11,10 +11,8 @@ public:
                 cant++;
             }
         }
-        if (cant == 1)
+        if (cant != 1)
             return "";
-        else{
-
-        }
+        return 'a';
     }
 };
