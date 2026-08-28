@@ -13,5 +13,6 @@ public:
         }
         if (cant % 2 != 0)
             return "";
+        return "a";
     }
 };
