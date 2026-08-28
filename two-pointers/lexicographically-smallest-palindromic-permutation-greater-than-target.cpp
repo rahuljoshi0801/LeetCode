@@ -53,7 +53,7 @@ public:
         }
         int cant = 0, flag = 0;
         for (int c = 0; c < 26; c++) {
-            if (count[c] % 2 == 1) { 
+            if (v[c] % 2 == 1) { 
                 cant++; 
                 midChar = c + 'a'; 
             }
