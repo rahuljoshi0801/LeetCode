@@ -9,7 +9,7 @@ public:
         for (char& ch : s) {
             if (v[ch- 'a'] % 2 != 0) {
                 cant++;
-                if(Cant == 1&& flag ==0){
+                if(cant == 1&& flag ==0){
                     store = ch -'a';
                     flag =1;
                 }
