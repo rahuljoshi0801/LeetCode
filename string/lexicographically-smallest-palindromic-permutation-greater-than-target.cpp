@@ -13,6 +13,6 @@ public:
         }
         if (cant != 1)
             return "";
-        return 'a';
+        return "a";
     }
 };
