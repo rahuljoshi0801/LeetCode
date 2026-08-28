@@ -55,7 +55,7 @@ public:
         for (int c = 0; c < 26; c++) {
             if (v[c] % 2 == 1) { 
                 cant++; 
-                midChar = c + 'a'; 
+                mid = c + 'a'; 
             }
         }
         if (cant > 1)
