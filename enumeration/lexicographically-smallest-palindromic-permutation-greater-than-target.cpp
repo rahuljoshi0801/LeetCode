@@ -10,7 +10,7 @@ public:
             if (v[ch- 'a'] % 2 != 0) {
                 cant++;
                 if(cant == 1&& flag ==0){
-                    store = ch -'a';
+                    int store = ch -'a';
                     flag =1;
                 }
             }
