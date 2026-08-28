@@ -3,7 +3,7 @@ public:
     string lexPalindromicPermutation(string s, string target) {
         vector<int> v(26);
         for (char& ch : s) {
-            v[ch - '0']++;
+            v[ch - 'a']++;
         }
         int cant = 0;
         for (char& ch : s) {
