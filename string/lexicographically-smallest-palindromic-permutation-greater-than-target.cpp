@@ -4,6 +4,7 @@ public:
     int halflen = 0;
     string res = "";
     bool solve(string curr, vector<int>& v, string target, int i, bool greater) {
+        //for palandromic string 
         if (curr.length() == halflen) {
             string candidate = curr;
             string rightHalf = curr;
@@ -44,7 +45,7 @@ public:
     }
 
     string lexPalindromicPermutation(string s, string target) {
-        vector<int> v(26);
+        vector<int> v(26,0);
         int n = s.length();
         
         for (char& ch : s) {
@@ -55,7 +56,7 @@ public:
             if (v[ch - 'a'] % 2 != 0) {
                 cant++;
                 if (cant == 1 && flag == 0) {
-                    mid = ch;
+                    mid = ch;// take the odd character 
                     flag = 1;
                 }
             }
