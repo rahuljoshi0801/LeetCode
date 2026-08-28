@@ -5,15 +5,18 @@ public:
         for (char& ch : s) {
             v[ch - 'a']++;
         }
-        int cant = 0;
+        int cant = 0, flag =0;
         for (char& ch : s) {
             if (v[ch- 'a'] % 2 != 0) {
                 cant++;
-                //if(cant ==1)
+                if(Cant == 1&& flag ==0){
+                    store = ch -'a';
+                    flag =1;
+                }
             }
         }
         if (cant > 1)
             return "";
-        return "a";
+        //if(cant == 1)
     }
 };
