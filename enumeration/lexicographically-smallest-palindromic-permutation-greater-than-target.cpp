@@ -18,5 +18,6 @@ public:
         if (cant > 1)
             return "";
         //if(cant == 1)
+        return "a";
     }
 };
