@@ -52,8 +52,7 @@ function minMoves(classroom, energy) {
                 q.push({
                     x: nx,
                     y: ny,
-                    mask: nmask,
-                    e: ne,
+                    mas
                     steps: t.steps + 1,
                 });
             }
