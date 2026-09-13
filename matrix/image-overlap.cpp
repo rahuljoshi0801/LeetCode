@@ -11,6 +11,7 @@ public:
                 int B_j = j + coloff; 
                 if(B_i < 0 || B_i >= n ||B_j < 0 ||B_j >= n)
                     continue;
+
                 if(A[i][j] == 1 && B[B_i][B_j] == 1) count++;           
             }
         }
@@ -19,8 +20,8 @@ public:
     int largestOverlap(vector<vector<int>>& A, vector<vector<int>>& B) {
         int n = A.size() ; 
         int maxOverlap = 0 ;
-        for(int rowoff = -1; rowoff < n ; rowoff++ ){
-            for(int coloff = -1;coloff < n ; coloff ++){
+        for(int rowoff = -(n+1); rowoff <= n-1 ; rowoff++ ){
+            for(int coloff = -(n+1);coloff <= n-1 ; coloff ++){
                 int count = countOverlaps(A,B,rowoff, coloff );
                 maxOverlap = max(maxOverlap, count);
             }
