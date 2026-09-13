@@ -16,8 +16,8 @@ public:
         if (!root) {
             return 0;
         }
-        int l = height(root->left , diameter); 
-        int r = height(root->right , diameter );
+        int l = height(root->left); 
+        int r = height(root->right  );
         diameter = max(diameter , l + r ) ; 
 
         return  1 + max(l ,r); 
@@ -25,7 +25,8 @@ public:
         
     }
     int diameterOfBinaryTree(TreeNode* root) {
-        return diameter;
+         height( root);
+         return diameter; 
         
     }
 };
