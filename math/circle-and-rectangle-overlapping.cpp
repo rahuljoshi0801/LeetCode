@@ -10,8 +10,8 @@ public:
         else if( y2 < yCenter) yi = y2 ;
         else yi = yCenter ; 
 
-        if((pow( 2, radius ))  >= (pow( 2, abs(xi - xCenter) )) + (pow( 2, abs(yi - yCenter) ))) return true;
+        return (pow( radius, 2 ))  >= (pow( abs(xi - xCenter),2  )) + (pow(  abs(yi - yCenter),2 )) ;
 
-        return false ;
+        
     }
 };
